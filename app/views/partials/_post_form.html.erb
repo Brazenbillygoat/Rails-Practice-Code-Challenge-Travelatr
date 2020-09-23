@@ -1,0 +1,23 @@
+<% if @post.errors %> 
+  <% @post.errors.full_messages.each do |error| %> 
+  <p><%=error%></p>
+  <%end%>
+<%end%>
+
+<%= form_for @post do |f| %>
+  <%= f.label :title, "Post's Title:" %>
+  <br>
+  <%= f.text_field :title %>
+  <br><br>
+  <%= f.label :content, "Content:" %>
+  <br>
+  <%= f.text_field :content %>
+  <br><br>
+  <%= f.label :blogger_id, "Blogger's name:" %>
+  <%= f.collection_select(:blogger_id, Blogger.all, :id, :name) %>
+  <br><br>
+  <%= f.label :destination_id, "Destination:" %> 
+  <%= f.collection_select(:destination_id, Destination.all, :id, :country) %>
+  <br><br>
+  <%= f.submit %>
+<% end %>

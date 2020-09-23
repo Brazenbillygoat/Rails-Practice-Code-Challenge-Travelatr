@@ -1,8 +1,15 @@
 class DestinationsController < ApplicationController
   def index
+    @destinations = Destination.all
   end
 
   def show
+    id = params[:id]
+    @destination = Destination.find(id)
+  end
+
+  def new
+    @destination = Destination.new
   end
 
   def create
@@ -11,8 +18,6 @@ class DestinationsController < ApplicationController
   def edit
   end
 
-  def new
-  end
 
   def delete
   end
