@@ -7,9 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    if params[:add_like]
-      @post.add_like
-    end
+    
   end
 
   def new
@@ -31,11 +29,15 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update
+    if params[:add_like]
+      @post.add_like
       redirect_to post_path(@post)
-    else
-      render :edit
     end
+    # if @post.update
+    #   redirect_to post_path(@post)
+    # else
+    #   render :edit
+    # end
   end
 
   private

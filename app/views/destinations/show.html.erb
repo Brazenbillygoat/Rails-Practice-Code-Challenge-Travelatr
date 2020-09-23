@@ -1,2 +1,9 @@
 <h1><%=@destination.name%></h1>
 <h3>Country:</h3> <%= @destination.country %> 
+
+<h4>Five most recent posts:</h4>
+
+<% @destination.five_most_recent.each do |post| %>
+  <p><%= post.title %></p>
+<% end %>
+

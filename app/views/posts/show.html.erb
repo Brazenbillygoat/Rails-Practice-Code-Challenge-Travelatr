@@ -4,8 +4,8 @@
 <br>
 <%= form_for @post do |f| %>
   <%= f.label :likes, "Likes:" %>
-  <%= f.number_field :likes %> 
-  <%= button_to "Add Like!", post_path(@post.id), params: { add_like: true}, method: "get" %>
+  <%= @post.likes %> 
+  <%= button_to "Add Like!", post_path(@post), params: { add_like: true} %>
   <% end %>
 
 
