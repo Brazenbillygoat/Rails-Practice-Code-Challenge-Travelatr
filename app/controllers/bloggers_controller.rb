@@ -8,6 +8,7 @@ class BloggersController < ApplicationController
   def show
   #   id = params[:id]
   #   @blogger = Blogger.find(id)
+  @most_liked_post = @blogger.find_most_liked_post()
   end
 
   def new

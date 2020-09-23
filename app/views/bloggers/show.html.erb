@@ -3,3 +3,13 @@
 Age: <%= @blogger.age%> 
 <br>
 Bio: <%= @blogger.bio%> 
+<br>
+
+Posts:
+<% @blogger.posts.group(:likes).each do |post|%>
+  <%  if post == @blogger.posts.group(:likes)[-1]%>
+    <p><%= link_to post.title, post_path(post) %> Likes: <%= post.likes %></p>
+  <% else %>
+    <p><%= post.title %> Likes: <%= post.likes %></p>
+  <% end %>
+<% end %>
